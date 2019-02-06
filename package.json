@@ -1,6 +1,6 @@
 {
-	"name": "helloWorld",
-	"displayName": "helloWorld",
+	"name": "color-bar",
+	"displayName": "color-bar",
 	"description": "",
 	"version": "0.0.1",
 	"engines": {
@@ -10,14 +10,44 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.colorBar",
+		"onCommand:extension.colorBarBlue",
+		"onCommand:extension.colorBarRed",
+		"onCommand:extension.colorBarGreen",
+		"onCommand:extension.colorBarYellow",
+		"onCommand:extension.colorBarOrange",
+		"onCommand:extension.colorBarPurple"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.colorBar",
+				"title": "Color Title Bar"
+			},
+			{
+				"command": "extension.colorBarBlue",
+				"title": "Color Title Bar Blue"
+			},
+			{
+				"command": "extension.colorBarRed",
+				"title": "Color Title Bar Red"
+			},
+			{
+				"command": "extension.colorBarGreen",
+				"title": "Color Title Bar Green"
+			},
+			{
+				"command": "extension.colorBarYellow",
+				"title": "Color Title Bar Yellow"
+			},
+			{
+				"command": "extension.colorBarOrange",
+				"title": "Color Title Bar Orange"
+			},
+			{
+				"command": "extension.colorBarPurple",
+				"title": "Color Title Bar Purple"
 			}
 		]
 	},

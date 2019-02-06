@@ -11,7 +11,13 @@
 // The module 'vscode' contains the VS Code extensibility API
 import * as vscode from 'vscode';
 
-async function colorTitleBar() {
+async function colorMe(color:string) {
+
+	// check if VS Code has project folder open - if not this extension does nothing :(
+	if (vscode.workspace.workspaceFolders === undefined) {
+		vscode.window.showErrorMessage("Error : No project folder (workspace) opened");
+		return;
+	}
 
 	// THIS IS WORKING FOR THEME CHANGE
 	//let config = vscode.workspace.getConfiguration();
@@ -52,33 +58,33 @@ async function colorTitleBar() {
 		//await config.update("workbench.colorCustomizations", value, undefined);
 		config.update("workbench.colorCustomizations", value, undefined);
 	});
-
-
-
-	/*
-	// get reference to workspace configuration and set titleBar color
-	let config:vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration();
-	let value:Object = {
-		"titleBar.activeBackground":"#00AA00",
-		"activityBar.background": "#00AA00"
-	};
-	// undefined so it only updates the workspace configurations and not globally
-	// updates the .vscode/settings.json file of project folder
-	await config.update("workbench.colorCustomizations", value, undefined);
-	*/
-	
-
-
-	
 }
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export async function activate(context: vscode.ExtensionContext) {
+
+	// setup VS Code Commands
+	let commands = [
+		vscode.commands.registerCommand('extension.colorBar', () => colorMe("")),
+		vscode.commands.registerCommand('extension.colorBarBlue', () => colorMe("#3399FF")),
+		vscode.commands.registerCommand('extension.colorBarRed', () => colorMe("#C60909")),
+		vscode.commands.registerCommand('extension.colorBarGreen', () => colorMe("#19A119")),
+		vscode.commands.registerCommand('extension.colorBarYellow', () => colorMe("#DAD70E")),
+		vscode.commands.registerCommand('extension.colorBarOrange', () => colorMe("#E49427")),
+		vscode.commands.registerCommand('extension.colorBarPurple', () => colorMe("#7C21D7"))
+	];
+
+	context.subscriptions.concat(commands);
+
+
+
+
+	/*
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
+	let disposable:vscode.Disposable = vscode.commands.registerCommand('extension.colorBar', () => {
 
 		// check if VS Code has project folder open - if not this extension does nothing :(
 		if (vscode.workspace.workspaceFolders === undefined) {
@@ -93,6 +99,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
+	*/
 }
 
 // this method is called when your extension is deactivated
