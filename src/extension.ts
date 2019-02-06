@@ -18,31 +18,28 @@ async function colorTitleBar() {
 	//await config.update('workbench.colorTheme', 'Allure Light (rainglow)', true);
 	// ---------------------------------
 
-
-	//let config = vscode.workspace.getConfiguration("workbench").get("colorCustomizations");
-	//let config = vscode.workspace.getConfiguration("workbench.colorCustomizations");
-	//	.get("colorCustomizations.titleBar.activeBackground");
-	//await config.update('titleBar.activeBackground', '#FF0000', undefined);
-
 	// regular expression to validate hex color user input
 	let regex:RegExp = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
-
 	// getting color hexcode input from user
-	let options: vscode.InputBoxOptions = {
+	let options:vscode.InputBoxOptions = {
 		password: false,
 		placeHolder: "#FF0000",
-		prompt: "Enter the color in hexcode:",
+		prompt: "Enter a Color Hex Code :)",
 		validateInput: (text: string) => {
 			if (!text.match(regex)) {
-				return "Not a valid Color Hex Code yet :(";
+				return "Invalid Hex Code :(";
 			} else {
 				return null;
 			}
 		}
 	};
 	vscode.window.showInputBox(options).then((enteredColor: any) => {
-		vscode.window.showInformationMessage('You entered ' + enteredColor);
+		//vscode.window.showInformationMessage('You entered ' + enteredColor);
 
+		// if user pressed ESC to cancel
+		if (enteredColor === undefined) {
+			return;
+		}
 
 		// get reference to workspace configuration and set titleBar color
 		let config:vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration();
