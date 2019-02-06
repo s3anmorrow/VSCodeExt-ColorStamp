@@ -16,38 +16,48 @@
 		"onCommand:extension.colorBarGreen",
 		"onCommand:extension.colorBarYellow",
 		"onCommand:extension.colorBarOrange",
-		"onCommand:extension.colorBarPurple"
+		"onCommand:extension.colorBarPurple",
+		"onCommand:extension.colorBarSilver",
+		"onCommand:extension.colorBarKhaki"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "extension.colorBar",
-				"title": "Color Title Bar"
+				"title": "Color Title Bar : ?"
 			},
 			{
 				"command": "extension.colorBarBlue",
-				"title": "Color Title Bar Blue"
+				"title": "Color Title Bar : Blue"
 			},
 			{
 				"command": "extension.colorBarRed",
-				"title": "Color Title Bar Red"
+				"title": "Color Title Bar : Red"
 			},
 			{
 				"command": "extension.colorBarGreen",
-				"title": "Color Title Bar Green"
+				"title": "Color Title Bar : Green"
 			},
 			{
 				"command": "extension.colorBarYellow",
-				"title": "Color Title Bar Yellow"
+				"title": "Color Title Bar : Yellow"
 			},
 			{
 				"command": "extension.colorBarOrange",
-				"title": "Color Title Bar Orange"
+				"title": "Color Title Bar : Orange"
 			},
 			{
 				"command": "extension.colorBarPurple",
-				"title": "Color Title Bar Purple"
+				"title": "Color Title Bar : Purple"
+			},
+			{
+				"command": "extension.colorBarSilver",
+				"title": "Color Title Bar : Silver"
+			},
+			{
+				"command": "extension.colorBarKhaki",
+				"title": "Color Title Bar : Khaki"
 			}
 		]
 	},

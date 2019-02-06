@@ -1,4 +1,4 @@
-// color theme : overflow (rainglow)
+// color theme : juicy (rainglow)
 
 // MANUALLY APPROACH
 // https://medium.com/@camdenb/colorful-vscode-titlebars-for-better-productivity-b05a619defed
@@ -7,11 +7,29 @@
 // SAMPLES
 // https://marketplace.visualstudio.com/items?itemName=RolandGreim.sample-ext
 
-
 // The module 'vscode' contains the VS Code extensibility API
 import * as vscode from 'vscode';
 
-async function colorMe(color:string) {
+async function updateConfig(enteredColor: any) {
+	//vscode.window.showInformationMessage('You entered ' + enteredColor);
+
+	// if user pressed ESC to cancel
+	if (enteredColor === undefined) {
+		return;
+	}
+
+	// get reference to workspace configuration and set titleBar color
+	let config:vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration();
+	let value:Object = {
+		"titleBar.activeBackground": enteredColor,
+		"activityBar.background": enteredColor
+	};
+	// undefined so it only updates the workspace configurations and not globally
+	// updates the .vscode/settings.json file of project folder
+	await config.update("workbench.colorCustomizations", value, undefined);
+}
+
+async function colorMe(color?:string) {
 
 	// check if VS Code has project folder open - if not this extension does nothing :(
 	if (vscode.workspace.workspaceFolders === undefined) {
@@ -19,45 +37,27 @@ async function colorMe(color:string) {
 		return;
 	}
 
-	// THIS IS WORKING FOR THEME CHANGE
-	//let config = vscode.workspace.getConfiguration();
-	//await config.update('workbench.colorTheme', 'Allure Light (rainglow)', true);
-	// ---------------------------------
-
-	// regular expression to validate hex color user input
-	let regex:RegExp = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
-	// getting color hexcode input from user
-	let options:vscode.InputBoxOptions = {
-		password: false,
-		placeHolder: "#FF0000",
-		prompt: "Enter a Color Hex Code :)",
-		validateInput: (text: string) => {
-			if (!text.match(regex)) {
-				return "Invalid Hex Code :(";
-			} else {
-				return null;
+	// color hexcode input required
+	if (color === undefined) {
+		// regular expression to validate hex color user input
+		let regex:RegExp = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
+		// getting color hexcode input from user
+		let options:vscode.InputBoxOptions = {
+			password: false,
+			placeHolder: "#FF0000",
+			prompt: "Enter a Color Hex Code :)",
+			validateInput: (text: string) => {
+				if (!text.match(regex)) {
+					return "Invalid Hex Code :(";
+				} else {
+					return null;
+				}
 			}
-		}
-	};
-	vscode.window.showInputBox(options).then((enteredColor: any) => {
-		//vscode.window.showInformationMessage('You entered ' + enteredColor);
-
-		// if user pressed ESC to cancel
-		if (enteredColor === undefined) {
-			return;
-		}
-
-		// get reference to workspace configuration and set titleBar color
-		let config:vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration();
-		let value:Object = {
-			"titleBar.activeBackground": enteredColor,
-			"activityBar.background": enteredColor
 		};
-		// undefined so it only updates the workspace configurations and not globally
-		// updates the .vscode/settings.json file of project folder
-		//await config.update("workbench.colorCustomizations", value, undefined);
-		config.update("workbench.colorCustomizations", value, undefined);
-	});
+		vscode.window.showInputBox(options).then((enteredColor:any) => updateConfig(enteredColor));
+	} else {
+		updateConfig(color);
+	}
 }
 
 // this method is called when your extension is activated
@@ -66,13 +66,15 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	// setup VS Code Commands
 	let commands = [
-		vscode.commands.registerCommand('extension.colorBar', () => colorMe("")),
+		vscode.commands.registerCommand('extension.colorBar', () => colorMe()),
 		vscode.commands.registerCommand('extension.colorBarBlue', () => colorMe("#3399FF")),
 		vscode.commands.registerCommand('extension.colorBarRed', () => colorMe("#C60909")),
 		vscode.commands.registerCommand('extension.colorBarGreen', () => colorMe("#19A119")),
 		vscode.commands.registerCommand('extension.colorBarYellow', () => colorMe("#DAD70E")),
 		vscode.commands.registerCommand('extension.colorBarOrange', () => colorMe("#E49427")),
-		vscode.commands.registerCommand('extension.colorBarPurple', () => colorMe("#7C21D7"))
+		vscode.commands.registerCommand('extension.colorBarPurple', () => colorMe("#7C21D7")),
+		vscode.commands.registerCommand('extension.colorBarSilver', () => colorMe("#C0C0C0")),
+		vscode.commands.registerCommand('extension.colorBarKhaki', () => colorMe("#F0E68C"))
 	];
 
 	context.subscriptions.concat(commands);
