@@ -19,6 +19,7 @@ async function colorTitleBar() {
 	//	.get("colorCustomizations.titleBar.activeBackground");
 	//await config.update('titleBar.activeBackground', '#FF0000', undefined);
 
+	// get reference to workspace configuration and set titleBar color
 	let config = vscode.workspace.getConfiguration();
 	let value = {
 		"titleBar.activeBackground":"#00AA00",
@@ -43,17 +44,16 @@ export async function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
 
 		// check if VS Code has project folder open - if not this extension does nothing :(
-		
-
-
-		// The code you place here will be executed every time your command is executed
-
-		
-		colorTitleBar();
+		// window.showErrorMessage
+		if (vscode.workspace.workspaceFolders === undefined) {
+			vscode.window.showErrorMessage("colorMe Error : No project folder (workspace) opened");
+		} else {
+			colorTitleBar();
+		}
 
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+		//vscode.window.showInformationMessage('Hello World!');
 	});
 
 	context.subscriptions.push(disposable);
