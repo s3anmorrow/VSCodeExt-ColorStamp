@@ -11,7 +11,7 @@ Change the color of the status bar to any of eight preset colors or your own col
 
 After Installation press `Ctrl+Shift+P` and type in `Color Stamp`. Select from a series commands to set the color.
 
-\!\[feature X\]\(images/feature-x.png\)
+![Usage Animated Gif](images/screen.png)
 
 The extension works by setting the workspace's configuration in .vscode/settings.json:
 

@@ -71,16 +71,16 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	// setup VS Code Commands
 	let commands = [
-		vscode.commands.registerCommand('extension.statusColorStamp', () => colorMe()),
-		vscode.commands.registerCommand('extension.statusColorStamp-Blue', () => colorMe("#3399FF")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Red', () => colorMe("#C60909")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Green', () => colorMe("#19A119")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Yellow', () => colorMe("#DAD70E")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Orange', () => colorMe("#E49427")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Purple', () => colorMe("#7C21D7")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Silver', () => colorMe("#708090")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Khaki', () => colorMe("#BDB76B")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Remove', () => colorMe("remove"))
+		vscode.commands.registerCommand('extension.colorStamp', () => colorMe()),
+		vscode.commands.registerCommand('extension.colorStamp-Blue', () => colorMe("#3399FF")),
+		vscode.commands.registerCommand('extension.colorStamp-Red', () => colorMe("#C60909")),
+		vscode.commands.registerCommand('extension.colorStamp-Green', () => colorMe("#19A119")),
+		vscode.commands.registerCommand('extension.colorStamp-Yellow', () => colorMe("#DAD70E")),
+		vscode.commands.registerCommand('extension.colorStamp-Orange', () => colorMe("#E49427")),
+		vscode.commands.registerCommand('extension.colorStamp-Purple', () => colorMe("#7C21D7")),
+		vscode.commands.registerCommand('extension.colorStamp-Silver', () => colorMe("#708090")),
+		vscode.commands.registerCommand('extension.colorStamp-Khaki', () => colorMe("#BDB76B")),
+		vscode.commands.registerCommand('extension.colorStamp-X', () => colorMe("remove"))
 	];
 
 	context.subscriptions.concat(commands);

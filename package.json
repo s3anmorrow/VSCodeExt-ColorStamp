@@ -26,7 +26,7 @@
 		"UI",
 		"vscode"
 	],
-	"icon": "media/logo.png",
+	"icon":"media/icon.png",
 	"activationEvents": [
 		"onCommand:extension.colorStamp",
 		"onCommand:extension.colorStamp-Blue",
@@ -37,7 +37,7 @@
 		"onCommand:extension.colorStamp-Purple",
 		"onCommand:extension.colorStamp-Silver",
 		"onCommand:extension.colorStamp-Khaki",
-		"onCommand:extension.colorStamp-Remove"
+		"onCommand:extension.colorStamp-X"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -79,8 +79,8 @@
 				"title": "Color Stamp : Khaki"
 			},
 			{
-				"command": "extension.colorStamp-Remove",
-				"title": "Color Stamp : Remove"
+				"command": "extension.colorStamp-X",
+				"title": "Color Stamp : X"
 			}
 		]
 	},
