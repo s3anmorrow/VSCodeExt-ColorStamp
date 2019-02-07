@@ -26,7 +26,7 @@
 		"UI",
 		"vscode"
 	],
-	"icon":"media/icon.png",
+	"icon":"images/icon.png",
 	"activationEvents": [
 		"onCommand:extension.colorStamp",
 		"onCommand:extension.colorStamp-Blue",
