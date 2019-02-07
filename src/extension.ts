@@ -19,7 +19,7 @@ async function updateConfig(enteredColor: any) {
 	// get reference to workspace configuration and set titleBar color
 	let config:vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration();
 	let value:Object;
-	if (enteredColor !== "default") {
+	if (enteredColor !== "remove") {
 		value = {
 			//"titleBar.activeBackground": enteredColor,
 			"statusBar.background": enteredColor
@@ -40,8 +40,8 @@ async function colorMe(color?:string) {
 		return;
 	}
 
-	if (color === "default") {
-		updateConfig("default");	
+	if (color === "remove") {
+		updateConfig("remove");	
 	} else if (color === undefined) {
 		// color hexcode input required from user
 		// regular expression to validate hex color user input
@@ -78,36 +78,12 @@ export async function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('extension.statusColorStamp-Yellow', () => colorMe("#DAD70E")),
 		vscode.commands.registerCommand('extension.statusColorStamp-Orange', () => colorMe("#E49427")),
 		vscode.commands.registerCommand('extension.statusColorStamp-Purple', () => colorMe("#7C21D7")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Silver', () => colorMe("#C0C0C0")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Khaki', () => colorMe("#F0E68C")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Default', () => colorMe("default"))
+		vscode.commands.registerCommand('extension.statusColorStamp-Silver', () => colorMe("#708090")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Khaki', () => colorMe("#BDB76B")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Remove', () => colorMe("remove"))
 	];
 
 	context.subscriptions.concat(commands);
-
-
-
-
-	/*
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable:vscode.Disposable = vscode.commands.registerCommand('extension.colorBar', () => {
-
-		// check if VS Code has project folder open - if not this extension does nothing :(
-		if (vscode.workspace.workspaceFolders === undefined) {
-			vscode.window.showErrorMessage("colorMe Error : No project folder (workspace) opened");
-		} else {
-			colorTitleBar();
-		}
-
-
-		// Display a message box to the user
-		//vscode.window.showInformationMessage('Hello World!');
-	});
-
-	context.subscriptions.push(disposable);
-	*/
 }
 
 // this method is called when your extension is deactivated

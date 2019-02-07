@@ -1,6 +1,6 @@
 {
-	"name": "status-color-stamp",
-	"displayName": "Status Color Stamp",
+	"name": "color-stamp",
+	"displayName": "Color Stamp",
 	"description": "Change VS Code window status bar color of each workspace for easy identifying",
 	"version": "0.0.1",
 	"publisher": "s3anmorrow",
@@ -26,60 +26,61 @@
 		"UI",
 		"vscode"
 	],
+	"icon": "media/logo.png",
 	"activationEvents": [
-		"onCommand:extension.statusColorStamp",
-		"onCommand:extension.statusColorStamp-Blue",
-		"onCommand:extension.statusColorStamp-Red",
-		"onCommand:extension.statusColorStamp-Green",
-		"onCommand:extension.statusColorStamp-Yellow",
-		"onCommand:extension.statusColorStamp-Orange",
-		"onCommand:extension.statusColorStamp-Purple",
-		"onCommand:extension.statusColorStamp-Silver",
-		"onCommand:extension.statusColorStamp-Khaki",
-		"onCommand:extension.statusColorStamp-Default"
+		"onCommand:extension.colorStamp",
+		"onCommand:extension.colorStamp-Blue",
+		"onCommand:extension.colorStamp-Red",
+		"onCommand:extension.colorStamp-Green",
+		"onCommand:extension.colorStamp-Yellow",
+		"onCommand:extension.colorStamp-Orange",
+		"onCommand:extension.colorStamp-Purple",
+		"onCommand:extension.colorStamp-Silver",
+		"onCommand:extension.colorStamp-Khaki",
+		"onCommand:extension.colorStamp-Remove"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.statusColorStamp",
-				"title": "Color StatusBar : ?"
+				"command": "extension.colorStamp",
+				"title": "Color Stamp : ?"
 			},
 			{
-				"command": "extension.statusColorStamp-Blue",
-				"title": "Color StatusBar : Blue"
+				"command": "extension.colorStamp-Blue",
+				"title": "Color Stamp : Blue"
 			},
 			{
-				"command": "extension.statusColorStamp-Red",
-				"title": "Color StatusBar : Red"
+				"command": "extension.colorStamp-Red",
+				"title": "Color Stamp : Red"
 			},
 			{
-				"command": "extension.statusColorStamp-Green",
-				"title": "Color StatusBar : Green"
+				"command": "extension.colorStamp-Green",
+				"title": "Color Stamp : Green"
 			},
 			{
-				"command": "extension.statusColorStamp-Yellow",
-				"title": "Color StatusBar : Yellow"
+				"command": "extension.colorStamp-Yellow",
+				"title": "Color Stamp : Yellow"
 			},
 			{
-				"command": "extension.statusColorStamp-Orange",
-				"title": "Color StatusBar : Orange"
+				"command": "extension.colorStamp-Orange",
+				"title": "Color Stamp : Orange"
 			},
 			{
-				"command": "extension.statusColorStamp-Purple",
-				"title": "Color StatusBar : Purple"
+				"command": "extension.colorStamp-Purple",
+				"title": "Color Stamp : Purple"
 			},
 			{
-				"command": "extension.statusColorStamp-Silver",
-				"title": "Color StatusBar : Silver"
+				"command": "extension.colorStamp-Silver",
+				"title": "Color Stamp : Silver"
 			},
 			{
-				"command": "extension.statusColorStamp-Khaki",
-				"title": "Color StatusBar : Khaki"
+				"command": "extension.colorStamp-Khaki",
+				"title": "Color Stamp : Khaki"
 			},
 			{
-				"command": "extension.statusColorStamp-Default",
-				"title": "Color StatusBar : Default"
+				"command": "extension.colorStamp-Remove",
+				"title": "Color Stamp : Remove"
 			}
 		]
 	},
