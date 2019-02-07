@@ -1,7 +1,7 @@
 {
 	"name": "status-color-stamp",
-	"displayName": "status-color-stamp",
-	"description": "",
+	"displayName": "Status Color Stamp",
+	"description": "Change VS Code window status bar color of each workspace for easy identifying",
 	"version": "0.0.1",
 	"publisher": "s3anmorrow",
 	"engines": {
@@ -35,7 +35,8 @@
 		"onCommand:extension.statusColorStamp-Orange",
 		"onCommand:extension.statusColorStamp-Purple",
 		"onCommand:extension.statusColorStamp-Silver",
-		"onCommand:extension.statusColorStamp-Khaki"
+		"onCommand:extension.statusColorStamp-Khaki",
+		"onCommand:extension.statusColorStamp-Default"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -75,6 +76,10 @@
 			{
 				"command": "extension.statusColorStamp-Khaki",
 				"title": "Color StatusBar : Khaki"
+			},
+			{
+				"command": "extension.statusColorStamp-Default",
+				"title": "Color StatusBar : Default"
 			}
 		]
 	},

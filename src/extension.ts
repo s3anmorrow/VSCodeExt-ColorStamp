@@ -11,19 +11,22 @@
 import * as vscode from 'vscode';
 
 async function updateConfig(enteredColor: any) {
-	//vscode.window.showInformationMessage('You entered ' + enteredColor);
-
 	// if user pressed ESC to cancel
 	if (enteredColor === undefined) {
 		return;
-	}
+	} 
 
 	// get reference to workspace configuration and set titleBar color
 	let config:vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration();
-	let value:Object = {
-		"titleBar.activeBackground": enteredColor,
-		"statusBar.background": enteredColor
-	};
+	let value:Object;
+	if (enteredColor !== "default") {
+		value = {
+			//"titleBar.activeBackground": enteredColor,
+			"statusBar.background": enteredColor
+		};
+	} else {
+		value = {};
+	}
 	// undefined so it only updates the workspace configurations and not globally
 	// updates the .vscode/settings.json file of project folder
 	await config.update("workbench.colorCustomizations", value, undefined);
@@ -37,8 +40,10 @@ async function colorMe(color?:string) {
 		return;
 	}
 
-	// color hexcode input required
-	if (color === undefined) {
+	if (color === "default") {
+		updateConfig("default");	
+	} else if (color === undefined) {
+		// color hexcode input required from user
 		// regular expression to validate hex color user input
 		let regex:RegExp = new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$");
 		// getting color hexcode input from user
@@ -74,7 +79,8 @@ export async function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('extension.statusColorStamp-Orange', () => colorMe("#E49427")),
 		vscode.commands.registerCommand('extension.statusColorStamp-Purple', () => colorMe("#7C21D7")),
 		vscode.commands.registerCommand('extension.statusColorStamp-Silver', () => colorMe("#C0C0C0")),
-		vscode.commands.registerCommand('extension.statusColorStamp-Khaki', () => colorMe("#F0E68C"))
+		vscode.commands.registerCommand('extension.statusColorStamp-Khaki', () => colorMe("#F0E68C")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Default', () => colorMe("default"))
 	];
 
 	context.subscriptions.concat(commands);

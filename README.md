@@ -4,7 +4,7 @@ This extension is for developers who typically have multiple VS Code windows ope
 
 ## Features
 
-Change the color of the status bar to any of eight preset colors or your own color with a provided hexidecimal color code (#FF0000). The set status bar color will persist in the current project folder (workspace).
+CHANGED!! Change the color of the status bar to any of eight preset colors or your own color with a provided hexidecimal color code (#FF0000). The set status bar color will persist in the current project folder (workspace).
 
 \!\[feature X\]\(images/feature-x.png\)
 
