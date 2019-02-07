@@ -9,7 +9,7 @@ Change the color of the status bar to any of eight preset colors or your own col
 
 ## Usage
 
-After Installation press `Ctrl+Shift+P` and type in `Color Stamp`. 
+After Installation press `Ctrl/Cmd+Shift+P` and type in `Color Stamp`. 
 
 Select from a series commands to set status bar to any color with hex code or one of eight built in colors.
 
