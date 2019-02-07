@@ -1,6 +1,6 @@
-// color theme : juicy (rainglow)
+// color theme : blink (rainglow)
 
-// MANUALLY APPROACH
+// MANUAL APPROACH
 // https://medium.com/@camdenb/colorful-vscode-titlebars-for-better-productivity-b05a619defed
 // THEME COLOR CHANGING
 // https://code.visualstudio.com/api/references/theme-color
@@ -22,7 +22,7 @@ async function updateConfig(enteredColor: any) {
 	let config:vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration();
 	let value:Object = {
 		"titleBar.activeBackground": enteredColor,
-		"activityBar.background": enteredColor
+		"statusBar.background": enteredColor
 	};
 	// undefined so it only updates the workspace configurations and not globally
 	// updates the .vscode/settings.json file of project folder
@@ -66,15 +66,15 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	// setup VS Code Commands
 	let commands = [
-		vscode.commands.registerCommand('extension.colorBar', () => colorMe()),
-		vscode.commands.registerCommand('extension.colorBarBlue', () => colorMe("#3399FF")),
-		vscode.commands.registerCommand('extension.colorBarRed', () => colorMe("#C60909")),
-		vscode.commands.registerCommand('extension.colorBarGreen', () => colorMe("#19A119")),
-		vscode.commands.registerCommand('extension.colorBarYellow', () => colorMe("#DAD70E")),
-		vscode.commands.registerCommand('extension.colorBarOrange', () => colorMe("#E49427")),
-		vscode.commands.registerCommand('extension.colorBarPurple', () => colorMe("#7C21D7")),
-		vscode.commands.registerCommand('extension.colorBarSilver', () => colorMe("#C0C0C0")),
-		vscode.commands.registerCommand('extension.colorBarKhaki', () => colorMe("#F0E68C"))
+		vscode.commands.registerCommand('extension.statusColorStamp', () => colorMe()),
+		vscode.commands.registerCommand('extension.statusColorStamp-Blue', () => colorMe("#3399FF")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Red', () => colorMe("#C60909")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Green', () => colorMe("#19A119")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Yellow', () => colorMe("#DAD70E")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Orange', () => colorMe("#E49427")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Purple', () => colorMe("#7C21D7")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Silver', () => colorMe("#C0C0C0")),
+		vscode.commands.registerCommand('extension.statusColorStamp-Khaki', () => colorMe("#F0E68C"))
 	];
 
 	context.subscriptions.concat(commands);
