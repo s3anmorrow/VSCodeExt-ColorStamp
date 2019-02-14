@@ -1,5 +1,4 @@
 // color theme : blink (rainglow)
-
 // MANUAL APPROACH
 // https://medium.com/@camdenb/colorful-vscode-titlebars-for-better-productivity-b05a619defed
 // THEME COLOR CHANGING
@@ -19,13 +18,18 @@ async function updateConfig(enteredColor: any) {
 	// get reference to workspace configuration and set titleBar color
 	let config:vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration();
 	let value:Object;
-	if (enteredColor !== "remove") {
+	if (enteredColor === "remove") {
+		value = {};
+	} else {
 		value = {
 			//"titleBar.activeBackground": enteredColor,
-			"statusBar.background": enteredColor
+			//"titleBar.inactiveBackground": enteredColor,
+			//"titleBar.activeForeground": "#FFFFFF",
+			"statusBar.background": enteredColor,
+			"statusBar.debuggingBackground": enteredColor,
+			"statusBar.noFolderBackground": enteredColor,
+			"statussBar.prominentBackground": enteredColor
 		};
-	} else {
-		value = {};
 	}
 	// undefined so it only updates the workspace configurations and not globally
 	// updates the .vscode/settings.json file of project folder
@@ -42,6 +46,8 @@ async function colorMe(color?:string) {
 
 	if (color === "remove") {
 		updateConfig("remove");	
+	} else if (color === "title") {
+		updateConfig("title");
 	} else if (color === undefined) {
 		// color hexcode input required from user
 		// regular expression to validate hex color user input
@@ -80,7 +86,7 @@ export async function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('extension.colorStamp-Purple', () => colorMe("#7C21D7")),
 		vscode.commands.registerCommand('extension.colorStamp-Silver', () => colorMe("#708090")),
 		vscode.commands.registerCommand('extension.colorStamp-Khaki', () => colorMe("#BDB76B")),
-		vscode.commands.registerCommand('extension.colorStamp-X', () => colorMe("remove"))
+		vscode.commands.registerCommand('extension.colorStamp-X', () => colorMe("remove")),
 	];
 
 	context.subscriptions.concat(commands);
