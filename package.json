@@ -21,8 +21,10 @@
 		"id",
 		"windows",
 		"color",
-		"Extension",
-		"Development",
+		"stamp",
+		"identify",
+		"extension",
+		"development",
 		"UI",
 		"vscode"
 	],
