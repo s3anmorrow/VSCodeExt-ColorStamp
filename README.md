@@ -25,7 +25,7 @@ The extension works by setting the workspace's configuration in .vscode/settings
 
 ## Commands
 
-* Color Stamp : ?
+* Color Stamp : ? [enter your own color hex code for the color stamp]
 * Color Stamp : Blue
 * Color Stamp : Red
 * Color Stamp : Green
@@ -34,4 +34,4 @@ The extension works by setting the workspace's configuration in .vscode/settings
 * Color Stamp : Purple
 * Color Stamp : Silver
 * Color Stamp : Khaki
-* Color Stamp : X
+* Color Stamp : X [remove all color stamps]

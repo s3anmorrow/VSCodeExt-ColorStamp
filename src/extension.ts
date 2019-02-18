@@ -1,3 +1,8 @@
+// reference:
+// https://code.visualstudio.com/api/working-with-extensions/
+// see npm scripts for commands to package / publish / install package for testing
+// debug with debug button in VS Code
+
 // color theme : blink (rainglow)
 // MANUAL APPROACH
 // https://medium.com/@camdenb/colorful-vscode-titlebars-for-better-productivity-b05a619defed

@@ -87,6 +87,9 @@
 		]
 	},
 	"scripts": {
+		"package": "vsce package",
+		"install": "code --install-extension color-stamp-0.0.1.vsix",
+		"publish": "vsce publish",
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
