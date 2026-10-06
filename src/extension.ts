@@ -33,7 +33,8 @@ async function updateConfig(enteredColor: any) {
 			"statusBar.background": enteredColor,
 			"statusBar.debuggingBackground": enteredColor,
 			"statusBar.noFolderBackground": enteredColor,
-			"statussBar.prominentBackground": enteredColor
+			"statusBar.prominentBackground": enteredColor,
+			"statusBar.inactiveBackground": enteredColor
 		};
 	}
 	// undefined so it only updates the workspace configurations and not globally
